@@ -51,7 +51,6 @@ on fs
     symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice
     
     mount_all /vendor/etc/fstab.qcom --early
-    swapon_all /vendor/etc/fstab.qcom
 
     restorecon_recursive /efs
 
@@ -747,4 +746,7 @@ on property:persist.sys.ssr.restart_level=1
     write /sys/module/subsystem_restart/parameters/restart_level 1
 
 on property:persist.sys.ssr.restart_level=3
-    write /sys/module/subsystem_restart/parameters/restart_level 3    
+    write /sys/module/subsystem_restart/parameters/restart_level 3
+
+on property:sys.boot_completed=1
+    swapon_all /vendor/etc/fstab.qcom

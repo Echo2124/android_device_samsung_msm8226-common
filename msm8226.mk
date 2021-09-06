@@ -291,3 +291,5 @@ $(call inherit-product-if-exists, vendor/samsung/msm8226-common/msm8226-common-v
 
 # common msm8226
 $(call inherit-product, device/samsung/qcom-common/qcom-common.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/go_defaults.mk)
